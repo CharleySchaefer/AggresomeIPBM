@@ -1,0 +1,51 @@
+
+\documentclass[a4paper, 11 pt]{article}
+
+\usepackage[pdftex]{graphicx}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{a4wide}
+
+\usepackage{epstopdf}			% Use eps figures
+\usepackage{color}
+\usepackage{amsmath} % split environment
+\usepackage{amssymb} % split environment
+\usepackage{amsfonts} % split environment
+\usepackage{mathtools} % multlined environment
+\usepackage{ctable}
+\usepackage{tabularx}
+
+\usepackage{amsthm}
+\usepackage{ctable}
+\usepackage{wrapfig}
+\usepackage[small,bf]{caption}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{url}
+\usepackage{float}
+\usepackage{ifthen}
+
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\title{Manual}
+\author{Charley Schaefer}
+\bibliography{references}
+\begin{document}
+ \maketitle
+ \date{}
+  \section{Diffusion 1D}
+  Protein can hop a distance $\Delta x$ to the left or right; both with rate $\nu$.
+  For a time $\Delta t<1/2\nu$, the probability of moving either left or right is $p=2\nu\Delta t$. The mean displacement is $(1-p)\times 0 + (p/2)(\Delta x) +(p/2)(-\Delta x)=0$, with $1-p$ the probability that the displacement is $0$, $p/2$ the probability of either moving left or right.
+The mean square displacement is $(1-p)\times 0^2 + (p/2)(\Delta x)^2 +(p/2)(-\Delta x)^2=p(\Delta x)^2 = 2\nu (\Delta x)^2 \Delta t$.
+  If we consider $N$ subsequent time steps, $\Delta t_i$, with $i=1,2,\dots N$, the mean square displacement is
+\begin{equation}
+  \mathrm{MSD}(t) = \sum_{i} 2\nu (\Delta x)^2 \Delta t_i
+= 2\nu (\Delta x)^2 t,
+\end{equation}
+with $t\equiv \sum_{i=1}^{N} \Delta t_i$. We conclude $\nu (\Delta x)^2 = D$ is the diffusivity.
+
+
+\end{document}
