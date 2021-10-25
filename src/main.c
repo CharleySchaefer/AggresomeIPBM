@@ -415,18 +415,18 @@ int bleach_iter=-1, bleach_iter_target=2, bleach_capture=0;
   srand(rseed);
 
   /* initialise lattice */
-  if(nA>0){
+ // if(nA>0){
     LatticeA=make_lattice_cube(NX, NY, NZ);
     LatticeA->is_periodic_x=xperiodic;
     LatticeA->is_periodic_y=yperiodic;
     LatticeA->is_periodic_z=zperiodic;
-  }
-  if(nB>0){
+ // }
+ // if(nB>0){
     LatticeB=make_lattice_cube(NX, NY, NZ);
     LatticeB->is_periodic_x=xperiodic;
     LatticeB->is_periodic_y=yperiodic;
     LatticeB->is_periodic_z=zperiodic;
-  }
+ // }
   
   /* import cell topology (optional) - regions of attraction (aggresome/stress granule/microtubuli) and excluded volume (nucleoid/cell porosity) */
   if(strcmp(ftopology, "-1")) {
@@ -441,7 +441,7 @@ int bleach_iter=-1, bleach_iter_target=2, bleach_capture=0;
   }
   Nexcluded=0; /* number of excluded volume sites*/
   for (siteID=0; siteID<LatticeA->Nxyz; siteID++){
-    if(LatticeA->site[siteID]==-1)
+    if(nA>0 && LatticeA->site[siteID]==-1)
       Nexcluded++;
   }
   if(nA>0 && nA>LatticeA->Nxyz-Nexcluded) {
